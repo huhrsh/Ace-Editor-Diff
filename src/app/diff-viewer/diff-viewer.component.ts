@@ -108,7 +108,7 @@ export class DiffViewerComponent implements OnInit, OnChanges {
     if (this.requestInProgress) return;
     this.requestInProgress = true;
 
-    const updatedContent = this.modifiedContentContainer?.nativeElement.textContent || ''; // Provide default value
+    const updatedContent = this.modifiedContentContainer?.nativeElement.textContent || ''; 
     if (this.fileName && this.fileList[this.fileName]) {
       this.fileList[this.fileName] = {
         ...this.fileList[this.fileName],
@@ -125,6 +125,7 @@ export class DiffViewerComponent implements OnInit, OnChanges {
       console.log('Saving changes:', this.fileList[this.fileName]);
       setTimeout(() => {
         this.requestInProgress = false;
+        this.unselectFile();
       }, 2000);
     }
   }
