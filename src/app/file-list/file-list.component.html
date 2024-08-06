@@ -1,0 +1,34 @@
+<div class="px-12 py-4 flex flex-col">
+  <h2 class="text-2xl text-neutral-600 font-semibold">JSON files available: </h2>
+  <p *ngIf="files.length == 0" class="text-rose-500">No files to show!</p>
+  <ul class="flex flex-col gap-2">
+    <li *ngFor="let file of files" class="cursor-pointer w-fit list-disc ml-6" (click)="selectFile(file)">
+      {{ file.name }}
+    </li>
+  </ul>
+  <button (click)="changeAddDoc()" *ngIf="!showAddDoc" class="bg-sky-200 w-fit px-2 py-1.5 rounded hover:bg-sky-300 transition-all duration-300 mt-4">Add new JSON</button>
+  <div class="p-4 border mt-4" *ngIf="showAddDoc">
+    <h3 class="text-2xl text-neutral-600 font-semibold mb-4">Add New File</h3>
+    <form (submit)="addFile($event)" class="flex flex-col gap-2">
+      <div class="flex gap-4 items-center">
+        <label for="fileName" class="flex-shrink-0 min-w-40">File Name:</label>
+        <input class="outline-none border rounded px-2 py-1.5 w-full" id="fileName" name="fileName" [(ngModel)]="newFileName" required>
+      </div>
+      
+      <div class="flex gap-4 items-center">    
+        <label for="jsonDataOriginal" class="flex-shrink-0 min-w-40">Original JSON Data:</label>
+        <textarea class="outline-none border rounded px-2 py-1.5 w-full" id="jsonDataOriginal" name="jsonDataOriginal" [(ngModel)]="newFileOriginalData" rows="5" required></textarea>
+      </div>
+
+      <!-- <div class="flex gap-4 items-center">    
+        <label for="jsonDataModified" class="flex-shrink-0 min-w-40">Modified JSON Data (optional):</label>
+        <textarea class="outline-none border rounded px-2 py-1.5 w-full" id="jsonDataModified" name="jsonDataModified" [(ngModel)]="newFileModifiedData" rows="5"></textarea>
+      </div>
+       -->
+      <div class="flex gap-6">
+        <button (click)="changeAddDoc()" class="bg-rose-600 w-fit px-2 py-1.5 rounded text-white transition-all duration-300" type="submit">Cancel</button>
+        <button class="bg-sky-100 w-fit px-2 py-1.5 rounded hover:bg-sky-300 transition-all duration-300" type="submit">Add File</button>
+      </div>
+    </form>
+  </div>
+</div>

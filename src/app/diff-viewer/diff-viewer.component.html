@@ -1,0 +1,28 @@
+<div class="flex w-full flex-col py-6 gap-4">
+    <div class="px-12 flex items-center justify-between">
+        <p>
+            File name: {{fileName}}
+        </p>
+        <button (click)="unselectFile()" class="bg-rose-600 w-fit px-2 py-1.5 rounded  text-white transition-all duration-300" >
+            Close
+        </button>
+    </div>
+    <div class="flex w-full border  divide-x-2 ">
+        <div class="flex flex-col w-1/2">
+            <h2 class="bg-neutral-200 px-6 py-4 border border-neutral-400">Make changes here</h2>
+            <pre  #modifiedContentContainer contenteditable="true" class="bg-white float-left w-full min-h-[70vh] outline-none p-4 overflow-x-auto font-[outfit] text-base"></pre>
+        </div>
+        <div class="flex flex-col w-1/2">
+            <h2 class="bg-neutral-200 px-6 py-4 border border-neutral-400">Original File</h2>
+            <pre #originalContentContainer class="bg-neutral-100 float-right w-full min-h-[70vh] outline-none p-4 overflow-x-auto font-[outfit] text-base"></pre>
+        </div>
+    </div>
+    <div class="flex gap-4 ml-12">
+        <button (click)="unselectFile()" class="bg-rose-600 w-fit px-2 py-1.5 rounded  text-white transition-all duration-300" >
+            Cancel
+        </button>
+        <button class="bg-sky-100  w-fit px-2 py-1.5 rounded hover:bg-sky-300 transition-all duration-300"  (click)="saveChanges()" [disabled]="requestInProgress">
+            {{ requestInProgress ? 'Saving...' : 'Save' }}
+        </button>
+    </div>
+</div>

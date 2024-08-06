@@ -27,7 +27,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ace-builds/src-noconflict/ace.js",
+              "node_modules/ace-builds/src-noconflict/mode-json.js",
+              "node_modules/ace-builds/src-noconflict/theme-github.js"
+            ]
           },
           "configurations": {
             "production": {

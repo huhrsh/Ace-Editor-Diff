@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FileListComponent } from './file-list/file-list.component';
+import { DiffViewerComponent } from './diff-viewer/diff-viewer.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [HttpClientTestingModule], 
+      declarations: [AppComponent, FileListComponent, DiffViewerComponent], 
     }).compileComponents();
   });
 

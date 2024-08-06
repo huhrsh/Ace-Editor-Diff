@@ -1,0 +1,14 @@
+<section class="px-12 py-4">
+  <h2 class="text-2xl text-neutral-600 font-semibold mb-2">Files with pending approval: </h2>
+  <p *ngIf="unapprovedFiles.length===0"  class="text-rose-500">No files to show.</p>
+  <ul class="flex flex-col gap-2">
+    <li *ngFor="let file of unapprovedFiles" class="ml-4 list-disc w-full flex justify-between">
+      {{ file.key }}
+      <div class="flex gap-4">
+        <button class="bg-rose-200 px-2 py-1 rounded transition-all duration-200 hover:bg-rose-300" (click)="disapproveFile(file.key)">Disapprove</button>
+        <button class="bg-lime-200 px-2 py-1 rounded transition-all duration-200 hover:bg-lime-300" (click)="approveFile(file.key)">Approve</button>
+        <button class="bg-sky-200 px-2 py-1 rounded transition-all duration-200 hover:bg-sky-300" (click)="selectFile(file.key)">Select</button>
+      </div>
+    </li>
+  </ul>
+</section>
